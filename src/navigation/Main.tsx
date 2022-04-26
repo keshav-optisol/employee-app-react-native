@@ -1,35 +1,20 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-
-import { List } from '../screens/List';
-import { TextDemo, ButtonDemo, FormDemo } from '../screens/Demos';
+import { AddEmployee,AddEmployeeScreen,HomeScreen } from '../screens';
 
 export type MainStackParams = {
-  List: undefined;
-  TextDemo: undefined;
-  FormDemo: undefined;
-  ButtonDemo: undefined;
+  AddEmployee: undefined;
+  AddEmployeeScreen: undefined;
+  HomeScreen:{data:any};
 };
 
 const MainStack = createStackNavigator<MainStackParams>();
 
 export const Main = () => (
-  <MainStack.Navigator>
-    <MainStack.Screen name="List" component={List} />
-    <MainStack.Screen
-      name="TextDemo"
-      component={TextDemo}
-      options={{ headerTitle: 'Text Demo' }}
-    />
-    <MainStack.Screen
-      name="FormDemo"
-      component={FormDemo}
-      options={{ headerTitle: 'Button Demo' }}
-    />
-    <MainStack.Screen
-      name="ButtonDemo"
-      component={ButtonDemo}
-      options={{ headerTitle: 'Button Demo' }}
-    />
+  <MainStack.Navigator screenOptions={{ headerShown: false }}>
+    <MainStack.Screen name="AddEmployee" component={AddEmployee} />
+    <MainStack.Screen name="AddEmployeeScreen" component={AddEmployeeScreen} />
+    <MainStack.Screen name="HomeScreen" component={HomeScreen} />
+
   </MainStack.Navigator>
 );
